@@ -86,11 +86,11 @@
         IdentityRolesUpdate = 32001,
         IdentityClientsRead = 32100,
         IdentityClientsUpdate = 32101,
-        //Cargo
-        ViewCargo = 800,
-        CreateCargo = 810,
-        UpdateCargo = 811,
-        DeleteCargo = 812,
+        //Product
+        ViewProduct = 800,
+        CreateProduct = 810,
+        UpdateProduct = 811,
+        DeleteProduct = 812,
 
         //Transport List
         ViewTransportList = 900,

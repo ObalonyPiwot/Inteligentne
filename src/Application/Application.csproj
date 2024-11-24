@@ -27,7 +27,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Features\CheckUserPermissions\" />
 	  <Folder Include="Models\TransportPhotos\" />
 	</ItemGroup>
 

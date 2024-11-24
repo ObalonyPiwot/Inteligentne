@@ -17,7 +17,7 @@ namespace MyProject.Application.Features.Common.Queries.GetAll
             IQueryable<TEntity> query = GetFilteredQuery(request);
 
             List<TEntity> entities = await query
-                .OrderByDescending(x => x.Created)
+                //.OrderByDescending(x => x.Created)
                 .ToListAsync();
 
             IEnumerable<TResponse> result = Mapper.Map<IEnumerable<TResponse>>(entities);

@@ -37,14 +37,14 @@ namespace MyProject.Persistance.Interceptors
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.CreatedBy = currentUser.FullName;
-                    entry.Entity.Created = DateTime.Now;
+                    //entry.Entity.CreatedBy = currentUser.FullName;
+                    //entry.Entity.Created = DateTime.Now;
                 }
 
                 if (entry.State == EntityState.Added || entry.State == EntityState.Modified || entry.HasChangedOwnedEntities())
                 {
-                    entry.Entity.LastModifiedBy = currentUser.FullName;
-                    entry.Entity.LastModified = DateTime.Now;
+                    //entry.Entity.LastModifiedBy = currentUser.FullName;
+                   // entry.Entity.LastModified = DateTime.Now;
                 }
             }
         }

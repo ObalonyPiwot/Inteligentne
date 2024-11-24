@@ -2,18 +2,23 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.Entities;
 
 namespace MyProject.Persistance.Context
 {
     public interface IMyProjectDbContext
     {
         #region Tables
-        public DbSet<CargoEntity> Cargoes { get; }       
+        public DbSet<ProductEntity> Products { get; }
+        public DbSet<ProductType> Photos { get; }
+        public DbSet<ProductGender> Transactions { get; }
+        public DbSet<ProductCategory> TransactionsProducts { get; }
+        public DbSet<ProductType> ProductType { get; }
+        public DbSet<ProductGender> ProductGender { get; }
+        public DbSet<ProductCategory> ProductCategory { get; }
+        public DbSet<ProductSeason> ProductSeason { get; }
+        public DbSet<ProductCondition> ProductCondition { get; }
+        public DbSet<ProductMaterial> ProductMaterial { get; }
 
         #endregion Tables
 

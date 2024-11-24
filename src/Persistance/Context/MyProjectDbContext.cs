@@ -1,11 +1,8 @@
-﻿using MyProject.Domain.Authorization;
-using MyProject.Domain.Common;
-using MyProject.Domain.Entities;
+﻿using MyProject.Domain.Entities;
 using MyProject.Persistance.Interceptors;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.Extensions.Logging;
 using System.Reflection;
+using Domain.Entities;
 
 namespace MyProject.Persistance.Context
 {
@@ -19,8 +16,17 @@ namespace MyProject.Persistance.Context
         {
             _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;
         }
-
-        public DbSet<CargoEntity> Cargoes { get; set; }
+        public DbSet<ProductEntity> Products { get; set; }
+        public DbSet<ProductType> Photos { get; set; }
+        public DbSet<ProductGender> Transactions { get; set; }
+        public DbSet<ProductCategory> TransactionsProducts { get; set; }
+        public DbSet<ProductType> ProductType { get; set; }
+        public DbSet<ProductGender> ProductGender { get; set; }
+        public DbSet<ProductCategory> ProductCategory { get; set; }
+        public DbSet<ProductSeason> ProductSeason { get; set; }
+        public DbSet<ProductCondition> ProductCondition { get; set; }
+        public DbSet<ProductMaterial> ProductMaterial { get; set; }
+        public DbSet<Brand> Brand { get; set; }
       
         protected override void OnModelCreating(ModelBuilder builder)
         {

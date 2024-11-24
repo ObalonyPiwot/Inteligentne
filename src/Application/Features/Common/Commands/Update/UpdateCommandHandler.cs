@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using MyProject.Domain.Common;
-using MyProject.Domain.Entities;
-using MyProject.Domain.Enums;
 using MyProject.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using System.Net;
 
 namespace MyProject.Application.Features.Common.Commands.Update

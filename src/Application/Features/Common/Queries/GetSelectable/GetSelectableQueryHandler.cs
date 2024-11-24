@@ -20,7 +20,7 @@ namespace MyProject.Application.Features.Common.Queries.GetSelectable
 
             List<TEntity> entities = await query
                 .ForSearchTerm(request.FilterWords, FilterExpression)
-                .OrderByDescending(x => x.Created)
+                //.OrderByDescending(x => x.Created)
                 .Take(50)
                 .ToListAsync();
 
