@@ -6,7 +6,7 @@ namespace MyProject.Persistance.Configurations
 {
     public class ProductEntityConfiguration : BaseEntityConfiguration<ProductEntity>
     {
-        private readonly static string _tableName = "Productes";
+        private readonly static string _tableName = "Products";
 
         public ProductEntityConfiguration() : base(_tableName) { }
 

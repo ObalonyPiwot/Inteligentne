@@ -24,5 +24,6 @@ namespace Domain.Entities
         public int LikeCount { get; set; }
         public bool Available { get; set; }
         public float Price { get; set; }
+        public string Url { get; set; } = null!;
     }
 }

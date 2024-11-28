@@ -4,7 +4,7 @@ using MyProject.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
 
-namespace MyProject.Application.Features.Productes.Commands.UpdateProduct
+namespace MyProject.Application.Features.Products.Commands.UpdateProduct
 {
     public class UpdateProductCommandHandler : UpdateCommandHandler<ProductEntity, UpdateProductCommand>
     {

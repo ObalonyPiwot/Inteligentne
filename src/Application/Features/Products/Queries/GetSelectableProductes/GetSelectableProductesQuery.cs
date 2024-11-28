@@ -1,8 +1,8 @@
 ﻿using MyProject.Application.Features.Common.Queries.GetSelectable;
 
-namespace MyProject.Application.Features.Productes.Queries.GetSelectableProductes
+namespace MyProject.Application.Features.Products.Queries.GetSelectableProducts
 {
-    public class GetSelectableProductesQuery : GetSelectableQuery
+    public class GetSelectableProductsQuery : GetSelectableQuery
     {
     }
 }

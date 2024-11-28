@@ -19,6 +19,7 @@ namespace MyProject.Persistance.Context
         public DbSet<ProductSeason> ProductSeason { get; }
         public DbSet<ProductCondition> ProductCondition { get; }
         public DbSet<ProductMaterial> ProductMaterial { get; }
+        public DbSet<UserEntity> Users { get; }
 
         #endregion Tables
 

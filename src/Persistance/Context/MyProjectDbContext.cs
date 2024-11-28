@@ -27,7 +27,8 @@ namespace MyProject.Persistance.Context
         public DbSet<ProductCondition> ProductCondition { get; set; }
         public DbSet<ProductMaterial> ProductMaterial { get; set; }
         public DbSet<Brand> Brand { get; set; }
-      
+        public DbSet<UserEntity> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

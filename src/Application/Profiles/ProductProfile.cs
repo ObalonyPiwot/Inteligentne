@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using MyProject.Application.Models.Productes;
-using MyProject.Application.Features.Productes.Commands.CreateProduct;
-using MyProject.Application.Features.Productes.Commands.UpdateProduct;
+using MyProject.Application.Models.Products;
+using MyProject.Application.Features.Products.Commands.CreateProduct;
+using MyProject.Application.Features.Products.Commands.UpdateProduct;
 using MyProject.Application.Features.Common;
 using Domain.Entities;
 namespace MyProject.Application.Profiles

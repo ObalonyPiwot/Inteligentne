@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using MyProject.Application.Features.Common.Commands.Create;
-using MyProject.Application.Models.Productes;
+using MyProject.Application.Models.Products;
 using MyProject.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
 
-namespace MyProject.Application.Features.Productes.Commands.CreateProduct
+namespace MyProject.Application.Features.Products.Commands.CreateProduct
 {
     public class CreateProductCommandHandler : CreateCommandHandler<ProductEntity, CreateProductCommand, ProductViewModel>
     {

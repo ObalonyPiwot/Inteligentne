@@ -4,11 +4,11 @@ using MyProject.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Domain.Entities;
-namespace MyProject.Application.Features.Productes.Queries.GetSelectableProductes
+namespace MyProject.Application.Features.Products.Queries.GetSelectableProducts
 {
-    public class GetSelectableProductesQueryHandler : GetSelectableQueryHandler<ProductEntity, GetSelectableProductesQuery>
+    public class GetSelectableProductsQueryHandler : GetSelectableQueryHandler<ProductEntity, GetSelectableProductsQuery>
     {
-        public GetSelectableProductesQueryHandler(IMyProjectDbContext dbContext, IMapper mapper) : base(dbContext, mapper) { }
+        public GetSelectableProductsQueryHandler(IMyProjectDbContext dbContext, IMapper mapper) : base(dbContext, mapper) { }
 
         protected override Expression<Func<ProductEntity, bool>> FilterExpression(string word)
         {

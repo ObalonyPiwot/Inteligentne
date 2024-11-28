@@ -2,7 +2,7 @@
 using MyProject.Application.Features.Common.Commands.Delete;
 using MyProject.Persistance.Context;
 using Domain.Entities;
-namespace MyProject.Application.Features.Productes.Commands.DeleteProduct
+namespace MyProject.Application.Features.Products.Commands.DeleteProduct
 {
     public class DeleteProductCommandHandler : DeleteCommandHandler<ProductEntity, DeleteProductCommand>
     {

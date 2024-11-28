@@ -1,7 +1,7 @@
 ﻿using MyProject.Application.Features.Common;
-using MyProject.Application.Models.Productes;
+using MyProject.Application.Models.Products;
 
-namespace MyProject.Application.Features.Productes.Commands.CreateProduct
+namespace MyProject.Application.Features.Products.Commands.CreateProduct
 {
     public class CreateProductCommand : BaseRequest<ProductViewModel>
     {

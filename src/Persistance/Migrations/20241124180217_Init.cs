@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -156,7 +155,7 @@ namespace Persistance.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Productes",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -182,77 +181,77 @@ namespace Persistance.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Productes", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Productes_Brand_BrandId",
+                        name: "FK_Products_Brand_BrandId",
                         column: x => x.BrandId,
                         principalTable: "Brand",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Productes_ProductCategory_ProductCategoryId",
+                        name: "FK_Products_ProductCategory_ProductCategoryId",
                         column: x => x.ProductCategoryId,
                         principalTable: "ProductCategory",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Productes_ProductColor_ProductColorId",
+                        name: "FK_Products_ProductColor_ProductColorId",
                         column: x => x.ProductColorId,
                         principalTable: "ProductColor",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Productes_ProductGender_ProductGenderId",
+                        name: "FK_Products_ProductGender_ProductGenderId",
                         column: x => x.ProductGenderId,
                         principalTable: "ProductGender",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Productes_ProductMaterial_ProductMaterialId",
+                        name: "FK_Products_ProductMaterial_ProductMaterialId",
                         column: x => x.ProductMaterialId,
                         principalTable: "ProductMaterial",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Productes_ProductSeason_ProductSeasonId",
+                        name: "FK_Products_ProductSeason_ProductSeasonId",
                         column: x => x.ProductSeasonId,
                         principalTable: "ProductSeason",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Productes_ProductType_ProductTypeId",
+                        name: "FK_Products_ProductType_ProductTypeId",
                         column: x => x.ProductTypeId,
                         principalTable: "ProductType",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productes_BrandId",
-                table: "Productes",
+                name: "IX_Products_BrandId",
+                table: "Products",
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productes_ProductCategoryId",
-                table: "Productes",
+                name: "IX_Products_ProductCategoryId",
+                table: "Products",
                 column: "ProductCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productes_ProductColorId",
-                table: "Productes",
+                name: "IX_Products_ProductColorId",
+                table: "Products",
                 column: "ProductColorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productes_ProductGenderId",
-                table: "Productes",
+                name: "IX_Products_ProductGenderId",
+                table: "Products",
                 column: "ProductGenderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productes_ProductMaterialId",
-                table: "Productes",
+                name: "IX_Products_ProductMaterialId",
+                table: "Products",
                 column: "ProductMaterialId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productes_ProductSeasonId",
-                table: "Productes",
+                name: "IX_Products_ProductSeasonId",
+                table: "Products",
                 column: "ProductSeasonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Productes_ProductTypeId",
-                table: "Productes",
+                name: "IX_Products_ProductTypeId",
+                table: "Products",
                 column: "ProductTypeId");
         }
 
@@ -263,7 +262,7 @@ namespace Persistance.Migrations
                 name: "ProductCondition");
 
             migrationBuilder.DropTable(
-                name: "Productes");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Brand");

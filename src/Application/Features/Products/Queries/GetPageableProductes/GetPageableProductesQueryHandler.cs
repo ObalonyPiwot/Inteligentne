@@ -1,23 +1,23 @@
 ﻿using AutoMapper;
 using MyProject.Application.Features.Common.Queries.GetPageable;
-using MyProject.Application.Models.Productes;
+using MyProject.Application.Models.Products;
 using MyProject.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Domain.Entities;
 
-namespace MyProject.Application.Features.Productes.Queries.GetPageableProductes
+namespace MyProject.Application.Features.Products.Queries.GetPageableProducts
 {
-    public class GetPageableProductesQueryHandler : GetPageableQueryHandler<ProductEntity, GetPageableProductesQuery, ProductViewModel>
+    public class GetPageableProductsQueryHandler : GetPageableQueryHandler<ProductEntity, GetPageableProductsQuery, ProductViewModel>
     {
-        public GetPageableProductesQueryHandler(IMyProjectDbContext dbContext, IMapper mapper) : base(dbContext, mapper) { }
+        public GetPageableProductsQueryHandler(IMyProjectDbContext dbContext, IMapper mapper) : base(dbContext, mapper) { }
 
         protected override Expression<Func<ProductEntity, bool>> FilterExpression(string word)
         {
             return c =>
                 (EF.Functions.Like(c.Name, word));
         }
-        protected override IQueryable<ProductEntity> GetFilteredQuery(GetPageableProductesQuery request)
+        protected override IQueryable<ProductEntity> GetFilteredQuery(GetPageableProductsQuery request)
         {
             var query = base.GetFilteredQuery(request);
             return query;
