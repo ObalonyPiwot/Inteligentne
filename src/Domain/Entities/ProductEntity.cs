@@ -16,6 +16,8 @@ namespace Domain.Entities
         public int? ProductSeasonId { get; set; }
         public ProductSeason? ProductSeason { get; set; }
         public int? ProductConditionId { get; set; }
+        public ProductCondition? ProductCondition { get; set; }
+        public int? ProductMaterialId { get; set; }
         public ProductMaterial? ProductMaterial { get; set; }
         public int? ProductColorId { get; set; }
         public ProductColor? ProductColor { get; set; }

@@ -20,7 +20,16 @@ namespace MyProject.Application.Features.Products.Queries.GetPageableProducts
         protected override IQueryable<ProductEntity> GetFilteredQuery(GetPageableProductsQuery request)
         {
             var query = base.GetFilteredQuery(request);
-            return query;
+            return query
+                .Include(x=>x.Brand)
+                .Include(x=>x.ProductCategory)
+                .Include(x=>x.ProductColor)
+                .Include(x=>x.ProductGender)
+                .Include(x=>x.ProductSeason)
+                .Include(x=>x.ProductCondition)
+                .Include(x=>x.ProductMaterial)
+                .Include(x=>x.ProductType)
+                ;
         }
         protected override IQueryable<ProductEntity> GetOrderBy(IQueryable<ProductEntity> query, string? orderBy, bool desc)
         {
