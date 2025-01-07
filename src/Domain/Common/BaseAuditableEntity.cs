@@ -2,9 +2,10 @@
 {
     public abstract class BaseAuditableEntity : BaseEntity
     {
+        protected BaseAuditableEntity() : base()
+        {
+            Created = DateTime.Now;
+        }
         public DateTime Created { get; set; }
-        public string CreatedBy { get; set; } = null!;
-        public DateTime LastModified { get; set; }
-        public string LastModifiedBy { get; set; } = null!;
     }
 }

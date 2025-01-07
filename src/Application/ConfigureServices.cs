@@ -1,7 +1,7 @@
 ﻿using DinkToPdf;
 using DinkToPdf.Contracts;
 using MyProject.Application.Profiles;
-using MyProject.Domain.Authorization;
+using MyProject.Persistance.Authorization;
 using MyProject.Persistance.Context;
 using System.Reflection;
 

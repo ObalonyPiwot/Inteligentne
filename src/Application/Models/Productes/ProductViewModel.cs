@@ -25,6 +25,7 @@ namespace MyProject.Application.Models.Products
         public bool Available { get; set; }
         public float Price { get; set; }
         public string Url { get; set; } = null!;
+        public string RecomendationDescription { get; set; }
 
     }
 }

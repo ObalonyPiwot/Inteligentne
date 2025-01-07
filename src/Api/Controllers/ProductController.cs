@@ -5,6 +5,7 @@ using MyProject.Application.Models.Products;
 using MyProject.Application.Features.Products.Queries.GetProductById;
 using MyProject.Application.Features.Products.Queries.GetPageableProducts;
 using Microsoft.AspNetCore.Authorization;
+using Application.Features.Products.Queries.GetRecommendedPageableProducts;
 
 namespace MyProject.API.Controllers
 {
@@ -21,6 +22,10 @@ namespace MyProject.API.Controllers
         [HttpGet("pageable")]
         [AllowAnonymous]
         public async Task<ActionResult<BaseResponse<PaginationResult<ProductViewModel>>>> GetPageable([FromQuery] GetPageableProductsQuery request)
+          => await ExecuteRequest(request);
+        [HttpGet("recommendedPageable")]
+        [AllowAnonymous]
+        public async Task<ActionResult<BaseResponse<PaginationResult<ProductViewModel>>>> GetRecommendedPageable([FromQuery] GetRecommendedPageableProductsQuery request)
           => await ExecuteRequest(request);
 
     }

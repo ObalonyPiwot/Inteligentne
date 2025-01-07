@@ -1,4 +1,4 @@
-using MyProject.Domain.Middlewares;
+using MyProject.Persistance.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,9 +23,11 @@ app.UseHttpsRedirection();
 
 
 app.UseCors();
+app.UseMiddleware<CurrentUserMiddleware>();
+
+app.UseRouting();
 
 app.UseAuthentication();
-app.UseMiddleware<CurrentUserMiddleware>();
 app.UseAuthorization();
 
 app.MapControllers();

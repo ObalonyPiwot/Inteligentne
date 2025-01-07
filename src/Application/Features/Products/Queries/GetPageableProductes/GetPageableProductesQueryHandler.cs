@@ -5,6 +5,8 @@ using MyProject.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Domain.Entities;
+using Azure;
+using MyProject.Application.Features.Common;
 
 namespace MyProject.Application.Features.Products.Queries.GetPageableProducts
 {
@@ -28,8 +30,7 @@ namespace MyProject.Application.Features.Products.Queries.GetPageableProducts
                 .Include(x=>x.ProductSeason)
                 .Include(x=>x.ProductCondition)
                 .Include(x=>x.ProductMaterial)
-                .Include(x=>x.ProductType)
-                ;
+                .Include(x=>x.ProductType);
         }
         protected override IQueryable<ProductEntity> GetOrderBy(IQueryable<ProductEntity> query, string? orderBy, bool desc)
         {

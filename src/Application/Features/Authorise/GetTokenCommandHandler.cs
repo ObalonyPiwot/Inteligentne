@@ -9,7 +9,6 @@ using MyProject.Application.Features.Common;
 using MyProject.Persistance.Context;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace Application.Features.Authorise
@@ -33,18 +32,20 @@ namespace Application.Features.Authorise
         {
             try
             {
-                if(request.Login == "admin" && request.Password == "Pass123"){
+                /*if(request.Login == "admin" && request.Password == "Pass123"){
                     var token2 = GenerateJwtToken();
                     return new BaseResponse<TokenViewModel>(statusCode: HttpStatusCode.Created,
                         content: new TokenViewModel() { Token = token2, UserName = "Test", ExpirationTime = "900" });
 
-                }
+                }*/
 
                 UserEntity? user = await CheckUser(request.Login, request.Password);
 
                 if (user != null)
                 {
                     var token = GenerateJwtToken();
+                    user.Token = token;
+                    await DbContext.SaveChangesAsync(cancellationToken);
                     return new BaseResponse<TokenViewModel>(statusCode: HttpStatusCode.Created, 
                         content: new TokenViewModel() { Token = token, UserName=user.UserName, ExpirationTime="900" });
                 }

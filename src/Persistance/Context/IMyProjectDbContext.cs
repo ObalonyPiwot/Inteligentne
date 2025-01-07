@@ -10,7 +10,6 @@ namespace MyProject.Persistance.Context
     {
         #region Tables
         public DbSet<ProductEntity> Products { get; }
-        public DbSet<ProductType> Photos { get; }
         public DbSet<ProductGender> Transactions { get; }
         public DbSet<ProductCategory> TransactionsProducts { get; }
         public DbSet<ProductType> ProductType { get; }
@@ -20,6 +19,7 @@ namespace MyProject.Persistance.Context
         public DbSet<ProductCondition> ProductCondition { get; }
         public DbSet<ProductMaterial> ProductMaterial { get; }
         public DbSet<UserEntity> Users { get; }
+        public DbSet<CartEntity> Carts { get; }
 
         #endregion Tables
 

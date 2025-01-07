@@ -21,11 +21,6 @@ namespace MyProject.Application.Features.Common.Commands.Create
             
             return new BaseResponse(statusCode: HttpStatusCode.Created);
         }
-
-        public virtual async Task<TEntity?> getEntityAsync(Guid newEntityId, CancellationToken cancellationToken)
-        {
-            return await DbSet.FirstOrDefaultAsync(x => x.Id.Equals(newEntityId), cancellationToken);
-        }
     }
 
     public class CreateCommandHandler<TEntity, TRequest, TResponse> : BaseCommandHandler<TEntity, TRequest, TResponse>
