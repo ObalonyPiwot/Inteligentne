@@ -53,7 +53,7 @@ namespace Application.Features.Products.Queries.GetRecommendedPageableProducts
 
         public class RecommendedProduct
         {
-            public int Id { get; set; }
+            public string? Id { get; set; }
             public string Description { get; set; }
         }
 
@@ -77,6 +77,7 @@ namespace Application.Features.Products.Queries.GetRecommendedPageableProducts
                                    .ToListAsync();
             return allProducts.Select(p => new ProductDetails
             {
+                Id = p.Id.ToString(),
                 ProductName = p.Name,
                 ProductDescription = p.Description,
                 ProductPrice = p.Price,
@@ -110,12 +111,18 @@ namespace Application.Features.Products.Queries.GetRecommendedPageableProducts
 
         private async Task<List<RecommendedProduct>> GetRecommendedProductsFromOpenAI(List<ProductDetails> allProductsDetails, List<ProductDetails> purchasedProductsDetails)
         {
-            /* var apiKey = "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";
+             var apiKey = "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";
              var apiUrl = "https://api.openai.com/v1/chat/completions";
 
              using var client = new HttpClient();
              client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
-
+            var idDictionary = new Dictionary<string, string>();
+            foreach ( var product in allProductsDetails )
+            {
+                var guid = Guid.NewGuid();
+                idDictionary.Add(guid.ToString(), product.Id.ToString());
+                product.Id = guid.ToString();
+            }
              var requestBody = new
              {
                  model = "gpt-3.5-turbo",
@@ -132,7 +139,7 @@ namespace Application.Features.Products.Queries.GetRecommendedPageableProducts
                                    "{ \"id\": 1, \"description\": \"Lubisz produkty w podobnej cenie\" }, " +
                                    "{ \"id\": 22, \"description\": \"Ostatnio kupowałeś produkty tej marki\" }," +
                                    " ..." +
-                                   " ]"
+                                   "]"
                      }
                  },
                  max_tokens = 1500,
@@ -144,14 +151,21 @@ namespace Application.Features.Products.Queries.GetRecommendedPageableProducts
              var responseString = await response.Content.ReadAsStringAsync();
 
              var openAiResponse = JsonConvert.DeserializeObject<dynamic>(responseString);
-             var recommendedProducts = openAiResponse?.choices?[0]?.message?.content?.ToString();*/
-            var recommendedProducts = @"[
+             var recommendedProducts = openAiResponse?.choices?[0]?.message?.content?.ToString();
+            /*var recommendedProducts = @"[
                 {""id"": 10, ""description"": ""Lubisz produkty tej marki""},
                 {""id"": 26, ""description"": ""Podobne produkty z tej samej kategorii""},
                 {""id"": 29, ""description"": ""Ostatnio kupowane produkty z podobnym materiałem""},
                 {""id"": 50, ""description"": ""Podobne produkty z tej samej kategorii""}
-            ]";
+            ]";*/
             var recommendedProductsList = JsonConvert.DeserializeObject<List<RecommendedProduct>>(recommendedProducts);
+            foreach ( var item in recommendedProductsList)
+            {
+                if (idDictionary.TryGetValue(item.Id, out string newId))
+                {
+                    item.Id = newId;
+                }
+            }
             return recommendedProductsList;
         }
 
@@ -163,7 +177,7 @@ namespace Application.Features.Products.Queries.GetRecommendedPageableProducts
                                    .Include(p => p.ProductCategory)
                                    .Include(p => p.ProductSeason)
                                    .Include(p => p.ProductMaterial)
-                                   .Where(p => recommendedProductIds.Contains(p.Id))
+                                   .Where(p => recommendedProductIds.Contains(p.Id.ToString()))
                                    .ToListAsync();
         }
 
@@ -172,12 +186,13 @@ namespace Application.Features.Products.Queries.GetRecommendedPageableProducts
             var models = Mapper.Map<IEnumerable<ProductViewModel>>(recommendedProductEntities);
             foreach (var model in models)
             {
-                model.RecomendationDescription = recommendedProductsList.First(x => model.Id == x.Id).Description;
+                model.RecomendationDescription = recommendedProductsList.First(x => model.Id.ToString() == x.Id).Description;
             }
             return models;
         }
     }
     public class ProductDetails {
+        public string? Id { get; set; }
         public string? ProductName { get; set; }
         public string? ProductDescription { get; set; }
         public float ProductPrice { get; set; }
