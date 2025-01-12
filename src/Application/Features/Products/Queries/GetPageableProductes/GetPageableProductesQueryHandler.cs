@@ -21,7 +21,12 @@ namespace MyProject.Application.Features.Products.Queries.GetPageableProducts
         }
         protected override IQueryable<ProductEntity> GetFilteredQuery(GetPageableProductsQuery request)
         {
-            var query = base.GetFilteredQuery(request);
+            var query = DbSet.Where(x => x.IsActive &&
+                (request.Gender == null || request.Gender == x.ProductGenderId) &&
+                (request.Material == null || request.Material == x.ProductMaterialId) &&
+                (request.Category == null || request.Category == x.ProductCategoryId)
+            );
+
             return query
                 .Include(x=>x.Brand)
                 .Include(x=>x.ProductCategory)
